@@ -14,7 +14,7 @@ class Input:
                         "Go <direction> : Can move north, south, east or west\n" \
                         "Look           : Survey the area\n" \
                         "Map            : See a map of the rooms \n" \
-                         "Clock            : Check time \n" \
+                        "Name <new name>: Change player name\n" \
                          "Quit           : Quit game \n" \
                         "----------------------------------------------------"
 
@@ -23,29 +23,30 @@ class Input:
         self.instruction = ''
 
         # A very basic layout of the dungeon
-        self.map = "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" \
-                   "				Stonefruit Farm                                                        \n" \
-                   "				       |                                                               \n" \
-                   "				       |                                                               \n" \
+        self.map = "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" \
+                   "	Stonefruit Farm                                                        \n" \
+                   "	        |                                                               \n" \
+                   "	        |                                                               \n" \
                    "Cave ------------- Witch's Hut                                                         \n" \
                    "  |  			                                                                       \n" \
                    "  |  			                                                                       \n" \
                    "Fallen Temple ------------- North Street -----------------------------------Quarry     \n" \
-                   "    			                 |                                                     \n" \
-                   "    			                 |                                                     \n" \
-                   "                Bank ------ Clock Tower ------ Sherrif's Office                        \n" \
-                   "    			                 |                                                     \n" \
-                   "    			                 |                                                     \n" \
+                   "    	                 |                                                     \n" \
+                   "    	                 |                                                     \n" \
+                   "                    Bank ------ Clock Tower ------ Sherrif's Office                        \n" \
+                   "     	                 |                                                     \n" \
+                   "        	                 |                                                     \n" \
                    "          Helpington's ---- South Street ------ The Davy Lamp                          \n" \
-                   "    			                 |                    |                                \n" \
-                   "    			                 |                    |                                \n" \
-                   "    			             Entry Gate           Large Well                           \n" \
-                   "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+                   "    	                 |                              |                                \n" \
+                   "    	                 |                              |                                \n" \
+                   "                                    Entry Gate             Large Well                           \n" \
+                   "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 
         self.map_void = "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n\n\n\n\n" \
                         "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 
         self.output = ''
+        self.output_to_all = ''
 
         self.current_time = ''
 
@@ -75,6 +76,12 @@ class Input:
                 self.output = self.map_void
             else:
                 self.output = self.map
+
+        elif instruction == "name":
+            self.change_name(split_input[1])
+
+        elif instruction == "say":
+            self.say(self.player.name, split_input[1:])
 
         elif instruction == "kill":
             self.kill(user_input)
@@ -118,6 +125,15 @@ class Input:
 
         else:
             self.output = "No such thing to kill - Type 'help' for a list of commands."
+
+    def change_name(self, name):
+        self.player.name = name
+        self.output = "You changed your name to: " + name
+
+    def say(self, name, message):
+        makeitastring = ' '.join(map(str, message))
+        self.output_to_all = name + ": " + makeitastring
+
 
 
 
