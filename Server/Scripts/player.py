@@ -5,7 +5,7 @@ class Player:
 
     def __init__(self, name):
 
-        self.name = ''
+        self.name = 'Player'
         self.dungeon = ''
         self.current_room = ''
         self.input = ''
