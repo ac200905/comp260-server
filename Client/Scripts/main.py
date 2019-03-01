@@ -136,9 +136,9 @@ def send_function(new_input):
 
 def main_thread(client_info, MyGUI):
     print("Main Thread Running")
-    client_info.connectedToServer = False
+    client_info.server_connected = False
 
-    while (client_info.connectedToServer is False) and (client_info.running is True):
+    while (client_info.server_connected is False) and (client_info.running is True):
         try:
 
             if client_info.server_socket is None:
