@@ -2,3 +2,5 @@
 
 For the server, run game.py
 For the client, run main.py
+
+![](UMLDiagram.png)
