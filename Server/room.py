@@ -1,4 +1,4 @@
-from Scripts import item
+import item
 
 class Room:
 

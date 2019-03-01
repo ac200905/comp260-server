@@ -1,4 +1,4 @@
-from Scripts import game
+import game
 import socket
 import threading
 

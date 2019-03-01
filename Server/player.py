@@ -1,9 +1,10 @@
-from Scripts import input
+import input
 
 
 class Player:
 
-    def __init__(self, name):
+    def __init__(self, socket):
+        self.socket = socket
 
         self.name = 'Player'
         self.dungeon = ''

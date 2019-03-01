@@ -15,6 +15,7 @@ class Input:
                         "Look           : Survey the area\n" \
                         "Map            : See a map of the rooms \n" \
                         "Name <new name>: Change player name\n" \
+                         "Say <words>    : Talk to other players in room\n" \
                          "Quit           : Quit game \n" \
                         "----------------------------------------------------"
 
@@ -44,11 +45,13 @@ class Input:
 
         self.map_void = "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n\n\n\n\n" \
                         "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
-
+        # string to output to the client
         self.output = ''
         self.output_to_all = ''
 
         self.current_time = ''
+
+        self.last_room = ''
 
     def handle_input(self, user_input=""):
         #user_input = input("What will you do next? : ")
@@ -77,7 +80,7 @@ class Input:
             else:
                 self.output = self.map
 
-        elif instruction == "name":
+        elif instruction == "name" and len(split_input) > 1:
             self.change_name(split_input[1])
 
         elif instruction == "say":
@@ -110,6 +113,7 @@ class Input:
     def look_at(self, user_input):
         # Print the description of room connections
         self.output = self.dungeon.rooms_dict[self.player.current_room].look_description
+        #return self.dungeon.rooms_dict[self.player.current_room].look_description
 
     def check_time(self, user_input):
         # Print the description of room connections
@@ -126,13 +130,16 @@ class Input:
         else:
             self.output = "No such thing to kill - Type 'help' for a list of commands."
 
+    # change player name
     def change_name(self, name):
         self.player.name = name
         self.output = "You changed your name to: " + name
 
+    # send message
     def say(self, name, message):
         makeitastring = ' '.join(map(str, message))
         self.output_to_all = name + ": " + makeitastring
+        self.output = ""
 
 
 

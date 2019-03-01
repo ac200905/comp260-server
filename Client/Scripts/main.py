@@ -61,8 +61,10 @@ def receive_thread(client_info, MyGUI):
                 client_info_lock.release()
                 print("Text Received: " + text)
 
+
                 # Display text received to the UI text box
                 MyGUI.DisplayText(text)
+
 
             except socket.error:
 
@@ -97,6 +99,8 @@ class MyGUI(QtWidgets.QMainWindow, Ui_MainWindow):
         # When enter is pressed in input box.
         self.UserInputBox.returnPressed.connect(lambda: self.enter_command())
 
+
+
     def enter_command(self):
         self.new_input = self.UserInputBox.text().lower()
         print("Client input entered.")
@@ -112,7 +116,8 @@ class MyGUI(QtWidgets.QMainWindow, Ui_MainWindow):
         self.textDisplay.append(text)
 
     def DisplayPlayerName(self, name):
-        self.playerName = name
+
+        self.ui.playerName = name
 
     def DisplayCurrentRoom(self, room):
         self.currentRoom = room

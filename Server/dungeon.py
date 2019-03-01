@@ -1,4 +1,4 @@
-from Scripts import room
+import room
 
 class Dungeon:
 
@@ -48,11 +48,14 @@ class Dungeon:
         # establish the new room
         new_room = self.rooms_dict[current_room].connections[direction]
 
+
         # If the connection key is not empty
         if new_room != "":
 
             self.player.input.output = "\nYou make your way " + direction + "\n" \
                                        + self.rooms_dict[new_room].description
+
+            self.player.input.last_room = current_room
 
             # Timer for dungeon reset
             self.moves_taken = self.moves_taken + 1
