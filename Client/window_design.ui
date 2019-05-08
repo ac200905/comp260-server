@@ -340,23 +340,23 @@ border: 1px solid grey</string>
      </property>
      <property name="text">
       <string>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-            	                        Stonefruit Farm
-            	                                    |
-            	                                    |
-            Cave ------------- Witch's Hut
-               |
-               |
-            Fallen Temple ------------- North Street ----------------------------Quarry
-                	                 |
-                	                 |
-                               Bank ------ Clock Tower ------ Sherrif's Office
-                 	                 |
-                                    |
-                      Helpington's ---- South Street ------ The Davy Lamp
-                	                                            |                                       |
-                	                                            |                                       |
-                                                            Entry Gate                   Large Well
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</string>
+		Stonefruit Farm                                                        
+			|                                                               
+			|                                                               
+Cave ------------- Witch's Hut                                                         
+  |  			                                                                       
+  |  			                                                                       
+Fallen Temple ------------- North Street --------------------------------Quarry     
+				|                                             
+				|                                             
+		Bank ------ Clock Tower ------ Sherrif's Office                        
+				|                                                     
+				|                                                     
+                          Helpington's ---- South Street ------ The Davy Lamp                          
+				|                              |                                 
+				|                              |                                
+			     Entry Gate             Large Well                           
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</string>
      </property>
     </widget>
    </widget>
